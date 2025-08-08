@@ -4,9 +4,6 @@ main.py: druhý projekt do Engeto Online Python Akademie
 author: Aleksei Maltcev
 email: alexmal@post.cz
 """
-
-
-
 import random
 
 # Generování tajného čísla (nezačíná nulou)
