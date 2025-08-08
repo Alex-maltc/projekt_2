@@ -6,8 +6,12 @@ email: alexmal@post.cz
 """
 import random
 
-# Generování tajného čísla (nezačíná nulou)
 def generate_secret_number():
+    """
+    Vygeneruje tajné 4ciferné číslo:
+    - nezačíná nulou
+    - číslice se neopakují
+    """
     digits = list("123456789")  # první číslice nesmí být 0
     first_digit = random.choice(digits)
     digits = list("0123456789")
@@ -15,18 +19,25 @@ def generate_secret_number():
     random.shuffle(digits)
     return first_digit + ''.join(digits[:3])
 
-# Vyhodnocení bulls a cows
 def get_bulls_and_cows(secret, guess):
+    """
+    Vrací počet 'bulls' a 'cows' mezi tajným číslem a tipem.
+
+    Bulls = správné číslo na správné pozici.
+    Cows = správné číslo na špatné pozici.
+    """
     bulls = sum(s == g for s, g in zip(secret, guess))
     cows = sum(min(secret.count(d), guess.count(d)) for d in set(guess)) - bulls
     return bulls, cows
 
-# Herní smyčka
 def play_game():
+    """
+    Hlavní smyčka hry Bulls and Cows s validací vstupu.
+    """
     print("Hi there!!")
     print("I've generated a random 4 digit number for you. Let's play a bulls and cows game.")
     print("a 'cows' (správné číslo, špatná pozice).")
-    print("Zadej 'exit' pro ukončení.\n")
+    print("Enter 'exit' to quit.\n")
 
     secret = generate_secret_number()
     attempts = 0
@@ -61,7 +72,7 @@ def play_game():
         print(f"{bulls} bulls, {cows} cows")
 
         if bulls == 4:
-            print(f"Gratuluji! Uhodl jsi tajné číslo {secret} za {attempts} pokusů.")
+            print(f"Congratulations! You guessed the secret number {secret} after {attempts} attempts.")
             break
 
 # Spuštění hry
