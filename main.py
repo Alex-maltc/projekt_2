@@ -26,8 +26,8 @@ def get_bulls_and_cows(secret, guess):
 
 # Herní smyčka
 def play_game():
-    print("Vítej ve hře 'Cows and Bulls'!")
-    print("Hádej 4 různá čísla. Po každém pokusu ti řeknu, kolik máš 'bulls' (správné číslo a pozice)")
+    print("Hi there!!")
+    print("I've generated a random 4 digit number for you. Let's play a bulls and cows game.")
     print("a 'cows' (správné číslo, špatná pozice).")
     print("Zadej 'exit' pro ukončení.\n")
 
@@ -35,7 +35,7 @@ def play_game():
     attempts = 0
 
     while True:
-        guess = input("Zadej svůj tip (4 různá čísla): ")
+        guess = input("Enter a number: ")
 
         if guess.lower() == 'exit':
             print(f"Tajné číslo bylo: {secret}")
